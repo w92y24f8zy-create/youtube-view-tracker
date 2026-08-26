@@ -6,13 +6,8 @@ from pathlib import Path
 import requests
 
 
-# ==========================================
-# ここに記録したいYouTube動画のURLを入れる
-# ==========================================
-
-VIDEOS = [https://youtu.be/U_5WrPxQjkE?si=AQ1oZmlf1bG2PD6t
-    # "https://www.youtube.com/watch?v=XXXXXXXXXXX",
-    # "https://youtu.be/XXXXXXXXXXX",
+VIDEOS = [
+    "https://www.youtube.com/watch?v=U_5WrPxQjkE",
 ]
 
 
@@ -28,6 +23,7 @@ def get_video_id(url):
 
     for pattern in patterns:
         match = re.search(pattern, url)
+
         if match:
             return match.group(1)
 
@@ -114,6 +110,7 @@ def main():
     ).isoformat()
 
     for url in VIDEOS:
+
         try:
             info = get_video_info(url)
 
@@ -138,9 +135,9 @@ def main():
                 "views": info["views"]
             })
 
-            # 履歴が増えすぎないように
-            data[video_id]["history"] = \
+            data[video_id]["history"] = (
                 data[video_id]["history"][-1000:]
+            )
 
             print(
                 f'{info["title"]}: '
