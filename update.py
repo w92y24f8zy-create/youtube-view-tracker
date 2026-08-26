@@ -10,7 +10,7 @@ import requests
 # ここに記録したいYouTube動画のURLを入れる
 # ==========================================
 
-VIDEOS = [
+VIDEOS = [https://youtu.be/U_5WrPxQjkE?si=AQ1oZmlf1bG2PD6t
     # "https://www.youtube.com/watch?v=XXXXXXXXXXX",
     # "https://youtu.be/XXXXXXXXXXX",
 ]
